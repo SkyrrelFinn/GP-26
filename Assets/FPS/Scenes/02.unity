@@ -152,9 +152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AH2728.Bottle
   bottleMaterial: {fileID: 0}
-  bottleContents: 
-  liquidAmount: 0
-  isCapOn: 1
+  bottleContents: milk
+  liquidAmount: 0.624
+  bottleLocation: {x: 0, y: 0, z: 0}
+  isCapOn: 0
 --- !u!136 &629436360
 CapsuleCollider:
   m_ObjectHideFlags: 0

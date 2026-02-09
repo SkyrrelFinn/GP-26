@@ -1,3 +1,4 @@
+using System;
 using System.Net.NetworkInformation;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ namespace AH2728
 
         private float minimumLiquidCapacity = 0.0f;
         private float maximumLiquidCapacity = 1.0f;
+
+        [SerializeField] private Vector3 bottleLocation;
+        
 
         public bool isCapOn = true;
 
@@ -30,8 +34,17 @@ namespace AH2728
         public void ChangeLiquidAmount(float changeAmount)
         {
             //ToDo change the liquid amount and safeguard against going below or over the capacity of the bottle
-            if (changeAmount < minimumLiquidCapacity)
+            if (changeAmount < minimumLiquidCapacity) 
             {
+                Console.WriteLine("Bottle contents can't be less than 0");
+            }
+            else if (changeAmount > maximumLiquidCapacity)
+            {
+                Console.WriteLine("Bottle contents can't exceed botle size, overflow.");
+            }
+            else
+            {
+                liquidAmount = changeAmount;
             }
         }
     }

@@ -9,7 +9,7 @@ namespace Unity.FPS.Game
         void Start()
         {
             m_Health = GetComponent<Health>();
-            DebugUtility.HandleErrorIfNullGetComponent<Health, Destructable>(m_Health, this, gameObject);
+            //DebugUtility.HandleErrorIfNullGetComponent<Health, Destructable>(m_Health, this, gameObject);
 
             // Subscribe to damage & death actions
             m_Health.OnDie += OnDie;
