@@ -39,9 +39,40 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying=true;
         dialoguePanel.SetActive(true);
 
+        ContinueStory();
+       
+    }
+
+    private void Update()
+    {
+        //return right away if dialogue isn't playing
+        if (!dialogueIsPlaying)
+        {
+            return;
+        }
+        // handle continuing to the next line in the dialogue when submit is pressed
+        if (InputManager.GetInstance().GetSubmitPressed())
+        {
+            ContinueStory();
+        }
+    }
+
+    private void ExitDialogueMode()
+    {
+        dialogueIsPlaying=false;
+        dialoguePanel.SetActive(false);
+        dialogueText.text = "";
+    }
+
+    private void ContinueStory()
+    {
         if (currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();
+        }
+        else
+        {
+            ExitDialogueMode();
         }
     }
 }

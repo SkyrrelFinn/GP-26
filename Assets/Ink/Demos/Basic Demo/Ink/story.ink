@@ -1,5 +1,7 @@
 INCLUDE test.ink
 - -> main
 === main ===
-"{getStory()}"
--> DONE
+Talk?
++ [yes]
+    "{getStory()}"
+    -> main
