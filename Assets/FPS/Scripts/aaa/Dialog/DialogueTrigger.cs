@@ -8,6 +8,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
+    KeyCode interact = KeyCode.E;
+
     private bool playerIsInRange;
 
     private void Awake()
@@ -21,7 +23,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (playerIsInRange)
         {
             visualCue.SetActive(true);
-            if (InputManager.GetInstance().GetInteractPressed())
+            if (Input.GetKeyDown(interact))
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
             }
