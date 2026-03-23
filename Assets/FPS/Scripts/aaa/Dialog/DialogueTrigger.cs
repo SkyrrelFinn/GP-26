@@ -21,8 +21,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (playerIsInRange)
         {
             visualCue.SetActive(true);
+            Debug.Log("This works");
             if (InputManager.GetInstance().GetInteractPressed())
             {
+                Debug.Log("This works 2");
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
             }
         }
