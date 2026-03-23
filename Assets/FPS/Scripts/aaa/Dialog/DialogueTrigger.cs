@@ -1,14 +1,12 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour
 {
     [Header("Visual Cue")]
     [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
-
-    KeyCode interact = KeyCode.E;
 
     private bool playerIsInRange;
 
@@ -23,7 +21,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (playerIsInRange)
         {
             visualCue.SetActive(true);
-            if (Input.GetKeyDown(interact))
+            if (InputManager.GetInstance().GetInteractPressed())
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
             }
